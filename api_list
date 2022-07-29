@@ -1,0 +1,65 @@
+
+Project setup
+Login
+Forgot Password
+verifyEmail
+verifyCode
+resetPassword
+editProfile(id,first_name,last_name,email,Password)
+
+
+Notification Moduleregistr
+getAllNotification
+getNotificationLimit
+
+Users Management Module
+userListing
+addUser(id,first_name,last_name,email,gender,Password,DOB)
+viewUserProfile
+viewSubscription
+updateUser
+
+Online Ssesion Management Module
+getSessionListing
+createSession(title,description,price,date,time,Duration,total_Seats)
+ViewsSession
+editSession
+
+Order Management Module
+getOrders(id,order_id,customer_id,amount_paid,order_status,)
+getOrderByStatus
+getOrderByID-Details of each order with product
+editOrder
+
+Inventory Management Module
+getProduct
+createProduct
+viewInventory
+editProduct
+
+Subscription Logs Module
+getSubscription
+create
+view
+edit
+
+Payment Logs Module
+getPayments
+
+Meal Plan Subscription Module
+getSubscription
+createSubscription with MealPlan
+viewSubscription
+editSubscription
+Customize Subscription plan
+createCustomizeSubscriptionPlan
+deleteCustomizePlan
+editCustomizeSubscription
+
+Feedback Module
+getFeedbacks
+viewFeedbackDetails
+Dashboard Module
+
+total product sales
+total amount
