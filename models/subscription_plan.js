@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'cascade'
     
       })
-      
-      this.belongsToMany(models.users, {
-        foreignKey: "subs_id",
-        through: "subscription_details",
-        otherKey: "user_id",
-        as: 'users',
-        onDelete: 'cascade'
-      })
+      // this.h=(models.users, {foreignKey:"user_id"})  
+      // this.belongsToMany(models.users, {
+      //   foreignKey: "subs_id",
+      //   through: "subscription_details",
+      //   otherKey: "user_id",
+      //   as: 'users',
+      //   onDelete: 'cascade'
+      // })
       // this.hasOne(models.subs_description,{
       //   foreignKey:'subscription_id'
 

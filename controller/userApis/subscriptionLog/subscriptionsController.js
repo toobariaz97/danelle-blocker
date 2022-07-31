@@ -60,13 +60,16 @@ exports.viewMealDetails = async (req, res) => {
 
     let { user } = req;
 
-    // let mealPlan = await subscription_details.findOne({
-    //     include: [{ model: subscription_plan, include:{ all: "meal_plan" }}],
-    //             where: {
-    //         id: req.params.id,
-    //         user_id: user.id
-    //     }
-    // })
+    let mealPlan = await subscription_details.findOne({
+        include: [{ model: subscription_plan,as:"plan", 
+        include:[{model:meal_plan ,as:"meal_plan" }, {model:subs_description,as:"plan"}]
+    },  
+ ],
+                where: {
+            id: req.params.id,
+            user_id: user.id
+        }
+    })
 
     if(!mealPlan) return res.status(404).json(apiError("Not found"))
 

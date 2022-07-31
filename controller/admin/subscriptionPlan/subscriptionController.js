@@ -82,7 +82,7 @@ exports.getAllSubcription = async (req, res) => {
       total,
       pages,
     } = await subscription_plan.paginate({
-      include: ["users", "plan", "meal_plan"],
+      include: [ "plan", "meal_plan"],
       where: whereStatement,
       page: currentpage,
       paginate: per_page,

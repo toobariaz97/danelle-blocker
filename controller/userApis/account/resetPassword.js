@@ -31,7 +31,7 @@ exports.verfiyEmail = async (req, res) => {
         console.log(codeData)
         //mail
         passwordReset(req.body.email, generateCode)
-        return res.status(200).json(apiSuccess("email is verified"));
+        return res.status(200).json(apiSuccess("Email sent, please check your email for security code"));
 
     } catch (error) {
         console.log(error)
@@ -52,13 +52,14 @@ exports.verifyCode = async (req, res) => {
             {
                 where: {
 
-                    token: req.body.token
+                    token: req.body.token,
+                    email:req.params.email
                 }
             })
 
             if (!emailExist) return res.status(403).json(apiError("incorrect code"));
             
-            return res.status(200).json(apiSuccess("code is verified"));
+            return res.status(200).json(apiSuccess("code accepted"));
             
         } catch (error) {
             console.log(error)
@@ -73,7 +74,9 @@ exports.verifyCode = async (req, res) => {
 
             let codeVerify = await password_reset.findOne({
                 where: {
-                    token: req.params.code
+                    token: req.body.code,
+                    email:req.body.email,
+            
                 }
         })
         

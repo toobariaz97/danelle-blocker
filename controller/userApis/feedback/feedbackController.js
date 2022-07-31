@@ -8,9 +8,9 @@ exports.createFeedback = async (req, res) => {
     try {
         let msg = await feedbacks.create({
             username: firstName,
-            email: lastName,
-            phone:email,
-            subject: phone,
+            email: email,
+            phone:phone,
+            subject: subject,
             message: message,
             status:true
         });

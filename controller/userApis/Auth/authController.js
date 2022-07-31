@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
         let token = jwt.sign({ user_id: auth.id, expiry: moment().utc().add(1, 'year') }, 'danyelly_api')
         let hashPassword = await bcrypt.compare(req.body.password, auth.password)
 
-        if (!hashPassword) return res.status(403).json("Incorrect password")
+        if (!hashPassword) return res.status(403).json(apiError("Incorrect password"));
 
         // delete auth.dataValues.password;
 

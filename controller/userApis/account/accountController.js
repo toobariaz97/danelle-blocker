@@ -34,10 +34,15 @@ exports.updateAccount = async (req, res) => {
                 id: user.id
             }
         })
-        console.log(profile, "profiless")
-        let userData = await profile.update(req.body)
+        // if(req.body.email=profile.email) return res.status(403).json(apiError("email already exists")) ;
+        let userData = await profile.update({
+            email: req.body.email,
+            first_name: req.body.firstName,
+            last_name: req.body.lastName,
+            gender:req.body.gender?? req.body.other,
+            DOB:req.body.DOB
+        })
         if (!userData) return res.status(401).json("user is not exist")
-
         if (req.file) {
             userData.image = req.file.originalname;
         } await userData.save();

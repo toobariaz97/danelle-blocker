@@ -61,9 +61,9 @@ router.post('/change-password', [isAuthorized, passwordValidation], accountContr
 //end
 
 //reset-password
-router.get('/verify-email', verfiyEmail);
-router.get('/verify-code', verifyCode);
-router.post('/reset-password/:code', resetPassword)
+router.post('/verify-email', verfiyEmail);
+router.post('/verify-code/:email', verifyCode);
+router.post('/reset-password', resetPassword)
 //end
 
 //homeView
@@ -124,12 +124,12 @@ router.post('/edit-workout/:id', isAuthorized, editWorkout)
 
 //weight tracker
 router.post('/weight-goal', [isAuthorized, weightTrackerValidator], weightTracker)
-router.post('/add-weight', [isAuthorized, addWeightValidator], addWeight)
+router.get('/add-weight', [isAuthorized, addWeightValidator], addWeight)
 //feedbacks
 router.post('/feedback', createFeedback)
 
 //privacy policy
 router.get('/privacy', privacyPolicy)
-router.post('/terms', createtermsAndCondition)
+router.get('/terms', createtermsAndCondition)
 
 module.exports = router;

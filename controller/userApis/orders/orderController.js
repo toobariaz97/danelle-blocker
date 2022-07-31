@@ -129,13 +129,15 @@ exports.placeOrder = async (req, res) => {
         orderItems.forEach(async (product) => {
 
             console.log(product)
-          let p=await products.findOne({ where: { id: 1 } })
-            if (p.quantity == 0) {
-                return res.status(404).json(apiError("product is not available"))
-            } else {
-                p.quantity = p.quantity - product.qty;
-                await p.save()
-            }
+          let p=await products.findOne({ where: { id: product.product_id } });
+          if(!p){ return res.status(404).json(apiError("Product is  not available"))}
+          console.log(p)
+            // if (p.quantity == 0) {
+            //     return res.status(404).json(apiError("product is not available"))
+            // } else {
+            //     p.quantity = p.quantity - product.qty;
+            //     await p.save()
+            // }
             await order_details.create({
                 order_id: order.id,
                 product_id: product.product_id,

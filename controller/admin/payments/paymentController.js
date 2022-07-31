@@ -78,7 +78,6 @@ exports.getPayments = async (req, res) => {
                         }
                     ]
                 }
-
             ],
             where: whereStatement,
             page: currentpage,

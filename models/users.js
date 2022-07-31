@@ -41,7 +41,6 @@ this.hasMany(models.orders,{foreignKey:"customer_id",as:"orders"})
   users.init({
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    phone: DataTypes.STRING,
     email: DataTypes.STRING,
     gender: DataTypes.STRING,
     password: DataTypes.STRING,
